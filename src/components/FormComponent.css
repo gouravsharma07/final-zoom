@@ -1,0 +1,45 @@
+/* Form container */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  /* Input container */
+  .input-container {
+    margin-bottom: 15px;
+  }
+  
+  /* Label style */
+  .input-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Input field style */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: border-color 0.2s;
+  }
+  
+  /* Input field style when there is an error */
+  .input-error {
+    border-color: #ff6666;
+  }
+  
+  /* Error message style */
+  .error-message {
+    color: #ff6666;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
