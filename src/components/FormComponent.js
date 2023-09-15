@@ -12,7 +12,7 @@ const values = {
   ZOOM_MEETING_SDK_SECRET : "IZZ7xVN4pLQ2rqbfeRTqu3Ie85Qf1vZH",
   meetingNumber: 89295397410,
   role : 0,
-  signature : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTQ3NTMzOTksImV4cCI6MTY5NDc2MDU5OSwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk0NzYwNTk5fQ.RRCABU8LU4TwywYQJRhQTfttPpWixHx-B4xZS0NSOc0"
+  signature : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTQ3NjY4MzQsImV4cCI6MTY5NDg1MzIzNCwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk0ODUzMjM0fQ.Rh0-6U02SLJuG4QsyIn2Uvv4LEnoCjWiWxxUDUoJnZk"
 }
 
 const FormComponent = () => {
@@ -21,7 +21,7 @@ const FormComponent = () => {
   var passWord = values.password;
   var registrantToken = ''
   var zakToken = ''
-  var leaveUrl = 'http://localhost:3000'
+  var leaveUrl = 'https://harmonious-chimera-d441e6.netlify.app/'
 
   function startMeeting(signature) {
     document.getElementById('zmmtg-root').style.display = 'block'
