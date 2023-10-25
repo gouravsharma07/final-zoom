@@ -12,7 +12,7 @@ const values = {
   ZOOM_MEETING_SDK_SECRET : "IZZ7xVN4pLQ2rqbfeRTqu3Ie85Qf1vZH",
   meetingNumber: 89295397410,
   role : 0,
-  signature : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTUyNjg4NTgsImV4cCI6MTY5NTM1NTI1OCwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk1MzU1MjU4fQ.TCX0x0FUYouh8zLAWqYXMbOJnLgMRqA-CeR13SOfqsI"
+  signature : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTgyMjIxNjYsImV4cCI6MTY5ODMwODU2NiwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk4MzA4NTY2fQ.b1P5Db2qf0VJl00XVt8e_qxEuMSa4igOsx7wPo_A0yU"
 }
 
 const FormComponent = () => {
@@ -52,7 +52,11 @@ const FormComponent = () => {
       error: (error) => {
         console.log(error)
       }
-    })
+    });
+    ZoomMtg.showPureSharingContent({
+      show: true,
+      disable: false,
+    });
   }
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
