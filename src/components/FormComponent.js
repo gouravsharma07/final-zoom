@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import './FormComponent.css'; // Import the CSS file for styling
 import { ZoomMtg } from '@zoomus/websdk';
+import ZoomMtgEmbedded from "@zoomus/websdk/embedded"
 
-// ZoomMtg.setZoomJSLib('https://source.zoom.us/2.13.0/lib', '/av');
+const client = ZoomMtgEmbedded.createClient()
 
+ZoomMtg.setZoomJSLib('https://source.zoom.us/2.13.0/lib', '/av');
+// Set the crossOriginIsolated header
+// ZoomMtg.setZoomJSLib(ZoomMtg.getZoomJSLib(), '/av', { crossOriginIsolated: true });
 
 ZoomMtg.preLoadWasm();
 ZoomMtg.prepareWebSDK();
@@ -13,7 +17,7 @@ const values = {
   ZOOM_MEETING_SDK_SECRET : "IZZ7xVN4pLQ2rqbfeRTqu3Ie85Qf1vZH",
   meetingNumber: 89295397410,
   role : 0,
-  signature : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTgzODQ4NzYsImV4cCI6MTY5ODQ3MTI3NiwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk4NDcxMjc2fQ.tnUFnv6ks3xJGyAeFGzDwlc8k0RaRUx_xZW-qiRlCFU"
+  signature : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTgzMjc2ODMsImV4cCI6MTY5ODQxNDA4MywiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk4NDE0MDgzfQ.bYuZgmakaAQKjHanbs2LVeT3TEzonCZvUR7iS6ER2Z8"
 }
 
 const FormComponent = () => {
@@ -29,7 +33,7 @@ const FormComponent = () => {
     
     ZoomMtg.init({
       leaveUrl: leaveUrl,
-      
+
       success: (success) => {
         console.log(success)
 
@@ -92,9 +96,6 @@ const FormComponent = () => {
   };
 
   const getSignature = () => {
-    ZoomMtg.setZoomJSLib('https://source.zoom.us/2.13.0/lib', '/av', { crossOriginIsolated: true });
-    
-
     startMeeting(values.signature);
   };
 
@@ -103,8 +104,36 @@ const FormComponent = () => {
     const isUserNameValid = validateUserName();
     const isUserEmailValid = validateUserEmail();
 
+    let meetingSDKElement = document.getElementById('meetingSDKElement')
+
+client.init({ zoomAppRoot: meetingSDKElement, language: 'en-US' })
+
+
+
     if (isUserNameValid && isUserEmailValid) {
       getSignature();
+
+      client.init({
+        debug: true,
+        zoomAppRoot: 'meetingSDKElement', // Use the correct ID of the HTML element
+        language: 'en-US',
+        customize: {
+          video: {
+            isResizable: true,
+            viewSizes: {
+              default: {
+                width: 1000,
+                height: 600
+              },
+              ribbon: {
+                width: 1000,
+                height: 600
+              }
+            }
+          },
+          meetingInfo: ['topic', 'host'],
+        },
+      });
     }
   };
   
@@ -133,6 +162,8 @@ const FormComponent = () => {
         </div>
         <button type="submit">Join Meeting</button>
       </form>
+      <div id="meetingSDKElement">
+</div>
     </div>
   );
 };
