@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import './FormComponent.css'; // Import the CSS file for styling
 import { ZoomMtg } from '@zoomus/websdk';
 
-ZoomMtg.setZoomJSLib('https://source.zoom.us/2.13.0/lib', '/av');
-// Set the crossOriginIsolated header
-// ZoomMtg.setZoomJSLib(ZoomMtg.getZoomJSLib(), '/av', { crossOriginIsolated: true });
+// ZoomMtg.setZoomJSLib('https://source.zoom.us/2.13.0/lib', '/av');
 
 
 ZoomMtg.preLoadWasm();
@@ -28,9 +26,10 @@ const FormComponent = () => {
 
   function startMeeting(signature) {
     document.getElementById('zmmtg-root').style.display = 'block'
-
+    
     ZoomMtg.init({
       leaveUrl: leaveUrl,
+      
       success: (success) => {
         console.log(success)
 
@@ -93,6 +92,9 @@ const FormComponent = () => {
   };
 
   const getSignature = () => {
+    ZoomMtg.setZoomJSLib('https://source.zoom.us/2.13.0/lib', '/av', { crossOriginIsolated: true });
+    
+
     startMeeting(values.signature);
   };
 
