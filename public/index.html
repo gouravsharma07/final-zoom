@@ -36,7 +36,7 @@
     <!-- Origin Trials to enable Gallery View in Chrome/Edge -->
     <!-- More Info: https://developers.zoom.us/docs/meeting-sdk/web/gallery-view/ -->
     <!-- SharedArrayBuffers in non-isolated pages on Desktop platforms -->
-    <meta http-equiv="origin-trial" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTg2NTkwNDYsImV4cCI6MTY5ODc0NTQ0NiwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk4NzQ1NDQ2fQ.0nzKS0jZuyXdpeBpZhdvO9njb9EsFYez9XRDnUlNpGc">
+    <!-- <meta http-equiv="origin-trial" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTg2NTkwNDYsImV4cCI6MTY5ODc0NTQ0NiwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk4NzQ1NDQ2fQ.0nzKS0jZuyXdpeBpZhdvO9njb9EsFYez9XRDnUlNpGc"> -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -52,10 +52,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-
-    <script>
-      // See https://github.com/facebook/react/issues/20829#issuecomment-802088260
-      if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
-    </script>
   </body>
 </html>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './FormComponent.css'; // Import the CSS file for styling
 import { ZoomMtg } from '@zoomus/websdk';
-import "./coi-sw.js"
 
 ZoomMtg.setZoomJSLib('https://source.zoom.us/2.13.0/lib', '/av');
 ZoomMtg.preLoadWasm();
@@ -27,6 +26,9 @@ const FormComponent = () => {
 
     ZoomMtg.init({
       leaveUrl: leaveUrl,
+      showMeetingHeader: true,
+      videoHeader: true,
+      defaultView: true,
       success: (success) => {
         console.log(success)
 
@@ -56,9 +58,6 @@ const FormComponent = () => {
       show: true,
       disable: false,
     });
-    ZoomMtg.showMeetingHeader({
-      show: true,
-     });
   }
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
