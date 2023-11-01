@@ -5,9 +5,9 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta http-equiv="origin-trial" content="TOKEN_GOES_HERE" />
-    <meta http-equiv="Content-Security-Policy" content="require-corp">
-
+    <!-- <meta http-equiv="origin-trial" content="AmhyeqeHcnPBoTsGjB3qwJvuig12W9Sf2vDN8p++bX/va1flM0BrD1PRDR6F+5v2UOvJ8eMnPJKKHG47pt91WAMAAABgeyJvcmlnaW4iOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJmZWF0dXJlIjoiVW5yZXN0cmljdGVkU2hhcmVkQXJyYXlCdWZmZXIiLCJleHBpcnkiOjE3MDk4NTU5OTl9" /> -->
+    <meta http-equiv="origin-trial" content="AtnvUpCccP4GoaXbcOUb5qjqbNMPzyGNNlBF8/ilCSGUD+xGXIDS4vtZGVfdcZ7dAEc0aU8g3xYfTxBc+96ekQkAAACPeyJvcmlnaW4iOiJodHRwczovL2hhcm1vbmlvdXMtY2hpbWVyYS1kNDQxZTYubmV0bGlmeS5hcHA6NDQzIiwiZmVhdHVyZSI6IlVucmVzdHJpY3RlZFNoYXJlZEFycmF5QnVmZmVyIiwiZXhwaXJ5IjoxNzA5ODU1OTk5LCJpc1N1YmRvbWFpbiI6dHJ1ZX0=" />
+    <!--VLINKINFO => AjB03IA2TUD5meta94YerzrIkI0TcUAHcNKIwRFEa67OY/hAx6vuePkdXJApdcahUWFPghjXYWlErViQbew0NQgAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy52bGlua2luZm8uY29tOjQ0MyIsImZlYXR1cmUiOiJVbnJlc3RyaWN0ZWRTaGFyZWRBcnJheUJ1ZmZlciIsImV4cGlyeSI6MTcwOTg1NTk5OSwiaXNTdWJkb21haW4iOnRydWV9 -->
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -36,7 +36,7 @@
     <!-- Origin Trials to enable Gallery View in Chrome/Edge -->
     <!-- More Info: https://developers.zoom.us/docs/meeting-sdk/web/gallery-view/ -->
     <!-- SharedArrayBuffers in non-isolated pages on Desktop platforms -->
-    <meta http-equiv="origin-trial" content="">
+    <meta http-equiv="origin-trial" content="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZGtLZXkiOiJ2dHF1enVjUVF1dXZ6V19XRTM5TjBBIiwibW4iOjg5Mjk1Mzk3NDEwLCJyb2xlIjowLCJpYXQiOjE2OTg2NTkwNDYsImV4cCI6MTY5ODc0NTQ0NiwiYXBwS2V5IjoidnRxdXp1Y1FRdXV2eldfV0UzOU4wQSIsInRva2VuRXhwIjoxNjk4NzQ1NDQ2fQ.0nzKS0jZuyXdpeBpZhdvO9njb9EsFYez9XRDnUlNpGc">
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -52,5 +52,10 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script>
+      // See https://github.com/facebook/react/issues/20829#issuecomment-802088260
+      if (!crossOriginIsolated) SharedArrayBuffer = ArrayBuffer;
+    </script>
   </body>
 </html>
